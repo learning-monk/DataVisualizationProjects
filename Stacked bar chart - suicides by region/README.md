@@ -2,9 +2,9 @@
 
 This chart visualizes suicides from the year 1985-2016 by region among male and female.
 
-To see this chart live, please check this codepen.
+**To see this chart live, please check this codepen.**
 
-https://codepen.io/ksp585/pen/qBWydYq
+https://codepen.io/ksp585/full/qBWydYq
 
 More about D3.js:
 
