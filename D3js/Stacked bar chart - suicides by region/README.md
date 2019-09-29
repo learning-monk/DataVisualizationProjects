@@ -2,9 +2,9 @@
 
 This chart visualizes suicides from the year 1985-2016 by region among male and female.
 
-**To see this chart live, please check this codepen.**
+**To see this chart live, please check this link.**
 
-https://codepen.io/ksp585/full/qBWydYq
+https://learning-monk.github.io/DataVisualizationProjects/D3js/Stacked%20bar%20chart%20-%20suicides%20by%20region/index.html
 
 More about D3.js:
 
