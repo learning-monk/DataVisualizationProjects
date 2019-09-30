@@ -1,3 +1,5 @@
+**This is getting started project using Three.js**
+
 **cube:**
 
 - To create a cube, we need a _BoxGeometry_. This is an object that contains all the points (vertices) and fill (faces) of the cube.

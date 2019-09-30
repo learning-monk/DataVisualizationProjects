@@ -1,6 +1,7 @@
 **_These projects are created using Three.js data visualization library_**
 
 _What is Three.js library?_
+
 Three.js is a 3D library that makes displaying 3D content on a web page possible with webGL.
 
 - To display anything with three.js, we need three things:
@@ -9,6 +10,7 @@ Three.js is a 3D library that makes displaying 3D content on a web page possible
   - renderer
 
 **Scene:** A scene holds all the elements such as objects, cameras and lights
+
 **Camera:** The Camera determines what you will see in the output. You may need _Perspective Camera_ or a _Orthographic Camera_.
 
 - The first attribute in Prospective Camera is **FOV** (field of view). FOV is the extent of the scene that is seen on the display at any given moment. The value is in degrees.
