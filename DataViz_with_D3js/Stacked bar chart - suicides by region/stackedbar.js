@@ -6,8 +6,8 @@ const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 
 d3.csv("./suicide_rates_1985-2016.csv")
-  .then(finalData => {
-    finalData.forEach(d => {
+  .then((finalData) => {
+    finalData.forEach((d) => {
       d.Region = d.Region;
       d.female = parseFloat(d.female);
       d.male = parseFloat(d.male);
@@ -17,12 +17,12 @@ d3.csv("./suicide_rates_1985-2016.csv")
     const stack = d3.stack().keys(["female", "male"]);
     // Data, stacked
     const series = stack(finalData);
-    console.log(series);
+    // console.log(series);
 
     // set-up scales
     const xScale = d3
       .scaleBand()
-      .domain(finalData.map(d => d.Region))
+      .domain(finalData.map((d) => d.Region))
       .range([0, innerWidth])
       .padding(0.1);
 
@@ -30,7 +30,7 @@ d3.csv("./suicide_rates_1985-2016.csv")
 
     const yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(series, d => d3.max(d, d => d[1]))])
+      .domain([0, d3.max(series, (d) => d3.max(d, (d) => d[1]))])
       .rangeRound([innerHeight, 0]);
 
     const yAxis = d3.axisLeft().scale(yScale);
@@ -39,10 +39,10 @@ d3.csv("./suicide_rates_1985-2016.csv")
     // const colors = d3.scaleOrdinal(d3.schemeCategory10);
     const colors = d3
       .scaleOrdinal()
-      .domain(series.map(d => d.key))
+      .domain(series.map((d) => d.key))
       .range(
         d3
-          .quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), series.length)
+          .quantize((t) => d3.interpolateSpectral(t * 0.8 + 0.1), series.length)
           .reverse()
       )
       .unknown("#ccc");
@@ -65,25 +65,25 @@ d3.csv("./suicide_rates_1985-2016.csv")
       .data(series)
       .enter()
       .append("g")
-      .style("fill", d => colors(d.key))
+      .style("fill", (d) => colors(d.key))
       .attr("transform", `translate(0,0)`);
 
     // Add a rect for each data value
     g.selectAll("rect")
-      .data(d => d)
+      .data((d) => d)
       .enter()
       .append("rect")
-      .attr("x", function(d, i) {
+      .attr("x", function (d, i) {
         return xScale(d.data.Region);
       })
-      .attr("y", function(d) {
+      .attr("y", function (d) {
         return yScale(d[1]);
       })
-      .attr("height", function(d) {
+      .attr("height", function (d) {
         return yScale(d[0]) - yScale(d[1]);
       })
       .attr("width", xScale.bandwidth())
-      .on("mouseover", function(d) {
+      .on("mouseover", function (d) {
         //Get this bar's x/y values, then augment for the tooltip
         let xPosition =
           parseFloat(d3.select(this).attr("x")) + xScale.bandwidth() * 2;
@@ -96,9 +96,9 @@ d3.csv("./suicide_rates_1985-2016.csv")
           .select("#region")
           .text(d.data.Region);
 
-        // d3.select("#tooltip")
-        //   .select("#gender")
-        //   .text(d.key);
+        d3.select("#tooltip")
+          .select("#gender")
+          .text(d[0] === 0 ? "Female" : "Male");
 
         d3.select("#tooltip")
           .select("#suicides")
@@ -107,7 +107,7 @@ d3.csv("./suicide_rates_1985-2016.csv")
         //Show the tooltip
         d3.select("#tooltip").classed("hidden", false);
       })
-      .on("mouseout", function() {
+      .on("mouseout", function () {
         //Hide the tooltip
         d3.select("#tooltip").classed("hidden", true);
       });
@@ -129,14 +129,14 @@ d3.csv("./suicide_rates_1985-2016.csv")
       // .attr("r", 5)
       .attr("height", 10)
       .attr("width", 10)
-      .attr("fill", d => colors(d.key));
+      .attr("fill", (d) => colors(d.key));
 
     // draw legend text
     legend
       .append("text")
       .attr("y", (d, i) => i * 30 + 9)
       .attr("x", 5 * 3)
-      .text(d => d.key);
+      .text((d) => d.key);
 
     mainG
       .append("g")
@@ -155,6 +155,6 @@ d3.csv("./suicide_rates_1985-2016.csv")
       .attr("font-family", "arial")
       .attr("font-size", 24);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
