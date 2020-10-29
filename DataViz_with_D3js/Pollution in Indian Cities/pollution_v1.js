@@ -88,7 +88,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
     .nice();
 
     const yScale = d3.scaleLinear()
-    .domain([d3.min(data, d => Math.min(d["PM2.5"], d.PM10)), d3.max(data, d => Math.max(d["PM2.5"], d.PM10))])
+    .domain([d3.min(data, d => Math.min(d["PM2.5"], d.PM10, d.NOx, d.NH3, d.CO, d.SO2, d.O3, d.Benzene, d.Toluene, d.Xylene)), d3.max(data, d => Math.max(d["PM2.5"], d.PM10, d.NOx, d.NH3, d.CO, d.SO2, d.O3, d.Benzene, d.Toluene, d.Xylene))])
     .rangeRound([innerHeight, 0]);
     
     // Create Lines
