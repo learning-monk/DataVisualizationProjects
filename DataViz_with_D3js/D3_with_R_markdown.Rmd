@@ -1,0 +1,21 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r setup}
+library(r2d3)
+suicides <- "https://raw.githubusercontent.com/learning-monk/DataVisualizationProjects_JS/master/DataViz_with_D3js/Stacked%20bar%20chart%20-%20suicides%20by%20region/suicide_rates_1985-2016.csv"
+```
+
+```{d3 data=suicides}
+    .then((data) => {
+      data.forEach((d) => {
+        d.Region = d.Region;
+        d.female = parseFloat(d.female);
+        d.male = parseFloat(d.male);
+      });
+console.log(data);
+
+```
+

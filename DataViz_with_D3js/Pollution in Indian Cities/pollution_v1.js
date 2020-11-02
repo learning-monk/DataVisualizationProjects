@@ -1,4 +1,4 @@
-const width = 1000,
+const width = 1100,
   height = 500;
 
 const margin = { top: 100, right: 100, bottom: 100, left: 100 };
@@ -64,7 +64,8 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
   .attr("value", d => d.key)
   .text(d => d.key);
 
-  d3.select(mySelection).append("hr");
+  // d3.select(mySelection).append("hr");
+  d3.select(mySelection).append("p").text("Click on individual pollutants to show specific pollutant line or Click on ALL to show all the lines").append("hr");
 
   // Filter city to show line chart
   d3.select("#selection").on("change", function() {
@@ -76,9 +77,9 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
     const chartDIV = document.createElement("div");
 
     // color scale
-    const category = ["PM2.5", "PM10", "NOx", "NH3", "CO", "SO2", "O3", "Benzene", "Toluene", "Xylene"];
+    const category = ["ALL", "PM2.5", "PM10", "NOx", "NH3", "CO", "SO2", "O3", "Benzene", "Toluene", "Xylene"];
     const colors = d3.scaleOrdinal(d3.schemeCategory10)
-    .domain(category);
+    .domain(category.slice(1,category.length));
     // .range(["#ffff00","#ff4c4c"]);
 
     // Set up XScale and yScale
@@ -170,7 +171,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       .datum(filteredData, d => d["PM2.5"])
       .style("fill", "none")
       .attr("class", "line")
-      .attr("id", "PM2point5")
+      .attr("id", "PM2.5")
       .attr("stroke", colors(0))
       .attr("stroke-width", "2.5")
       .attr("d", PM2point5Line);
@@ -184,6 +185,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       .attr("stroke", colors(1))
       .attr("stroke-width", "2.5")
       .attr("d", PM10Line);
+
 
       mainG
       .append("path")
@@ -269,7 +271,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       .append("text")
       .attr("class", "chartTitle")
       .attr("y", -50)
-      .attr("x", height/2-50)
+      .attr("x", height/2+100)
       .text(`Air quality of ${selectedCity}`)
       .attr("font-weight", "bold")
       .attr("font-family", "sans-serif")
@@ -279,11 +281,12 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       const legend = mainG
       .append("g")
       .attr("class", "legend")
-      .attr("transform", "translate(" + (innerWidth) + "," + 0 + ")")
+      .attr("transform", "translate(" + (innerWidth+15) + "," + 0 + ")")
       .selectAll("g")
       .data(category)
       .enter()
       .append("g");
+      
 
       // draw legend colored rectangles
       legend
@@ -298,7 +301,16 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       .append("text")
       .attr("y", (d, i) => i * 30 + 9)
       .attr("x", 15)
-      .text((d) => d);      
+      .text((d) => d)
+      .on("click", function(d,i) {
+        // console.log(`I am ${category[i]}`);
+        if (category[i] == "ALL") {
+          for (let el of document.querySelectorAll(".line")) el.style.visibility = "visible"  
+        } else {
+          for (let el of document.querySelectorAll(".line")) el.style.visibility = "hidden"
+          document.getElementById(`${category[i]}`).style.visibility = "visible";
+        }
+      });
       
       const showChart = document.getElementById("chartContainer");
       while(showChart.firstChild) {
