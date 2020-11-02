@@ -65,7 +65,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
   .text(d => d.key);
 
   // d3.select(mySelection).append("hr");
-  d3.select(mySelection).append("p").text("Click on individual pollutants to show specific pollutant line or Click on ALL to show all the lines").append("hr");
+  d3.select(mySelection).append("p").text("Click on individual pollutants from legend to show specific pollutant line or Click on ALL to show all the lines").append("hr");
 
   // Filter city to show line chart
   d3.select("#selection").on("change", function() {
