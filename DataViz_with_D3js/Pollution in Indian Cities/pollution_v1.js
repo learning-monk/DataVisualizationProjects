@@ -281,7 +281,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       const legend = mainG
       .append("g")
       .attr("class", "legend")
-      .attr("transform", "translate(" + (innerWidth+15) + "," + 0 + ")")
+      .attr("transform", "translate(" + (innerWidth+25) + "," + -10 + ")")
       .selectAll("g")
       .data(category)
       .enter()
@@ -321,10 +321,5 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
     myGraph();
 
   })
-
-  
-
-
-
 
 });
