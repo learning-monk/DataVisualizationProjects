@@ -157,6 +157,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
     .attr("id", "yAxis")
     .call(d3.axisLeft(yScale));
 
+
     // Draw graph
     const myGraph = function() {
 
@@ -169,7 +170,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       mainG
       .append("path")
       .datum(filteredData, d => d["PM2.5"])
-      .style("fill", "none")
+      .attr("fill", "none")
       .attr("class", "line")
       .attr("id", "PM2.5")
       .attr("stroke", colors(0))
@@ -179,7 +180,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       mainG
       .append("path")
       .datum(filteredData, d => d.PM10)
-      .style("fill", "none")
+      .attr("fill", "none")
       .attr("class", "line")
       .attr("id", "PM10")
       .attr("stroke", colors(1))
@@ -190,7 +191,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       mainG
       .append("path")
       .datum(filteredData, d => d.NOx)
-      .style("fill", "none")
+      .attr("fill", "none")
       .attr("class", "line")
       .attr("id", "NOx")
       .attr("stroke", colors(2))
@@ -200,7 +201,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       mainG
       .append("path")
       .datum(filteredData, d => d.NH3)
-      .style("fill", "none")
+      .attr("fill", "none")
       .attr("class", "line")
       .attr("id", "NH3")
       .attr("stroke", colors(3))
@@ -210,7 +211,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       mainG
       .append("path")
       .datum(filteredData, d => d.CO)
-      .style("fill", "none")
+      .attr("fill", "none")
       .attr("class", "line")
       .attr("id", "CO")
       .attr("stroke", colors(4))
@@ -220,7 +221,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       mainG
       .append("path")
       .datum(filteredData, d => d.SO2)
-      .style("fill", "none")
+      .attr("fill", "none")
       .attr("class", "line")
       .attr("id", "SO2")
       .attr("stroke", colors(5))
@@ -230,7 +231,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       mainG
       .append("path")
       .datum(filteredData, d => d.O3)
-      .style("fill", "none")
+      .attr("fill", "none")
       .attr("class", "line")
       .attr("id", "O3")
       .attr("stroke", colors(6))
@@ -240,7 +241,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       mainG
       .append("path")
       .datum(filteredData, d => d.Benzene)
-      .style("fill", "none")
+      .attr("fill", "none")
       .attr("class", "line")
       .attr("id", "Benzene")
       .attr("stroke", colors(7))
@@ -250,7 +251,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       mainG
       .append("path")
       .datum(filteredData, d => d.Toluene)
-      .style("fill", "none")
+      .attr("fill", "none")
       .attr("class", "line")
       .attr("id", "Toluene")
       .attr("stroke", colors(8))
@@ -260,7 +261,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       mainG
       .append("path")
       .datum(filteredData, d => d.Xylene)
-      .style("fill", "none")
+      .attr("fill", "none")
       .attr("class", "line")
       .attr("id", "Xylene")
       .attr("stroke", colors(9))
@@ -302,6 +303,7 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONM
       .attr("y", (d, i) => i * 30 + 9)
       .attr("x", 15)
       .text((d) => d)
+      .style("color", "yellow")
       .on("click", function(d,i) {
         // console.log(`I am ${category[i]}`);
         if (category[i] == "ALL") {
