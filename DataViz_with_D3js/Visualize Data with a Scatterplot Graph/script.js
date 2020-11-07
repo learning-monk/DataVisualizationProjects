@@ -46,7 +46,6 @@ d3.json(
   const yScale = d3
     .scalePoint()
     .domain(data.map(d => d.Time))
-    // .range([innerHeight, 0])
     .range([0, innerHeight]) // flips the order of values
     .padding(0.8);
 
