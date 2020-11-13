@@ -1,7 +1,7 @@
 const w = 1000;
 const h = 500;
 
-const margins = { top: 100, left: 100, bottom: 100, right: 100 }
+const margins = { top: 50, left: 100, bottom: 100, right: 100 }
 const innerWidth = w - margins.left - margins.right;
 const innerHeight = h - margins.top - margins.bottom;
 
