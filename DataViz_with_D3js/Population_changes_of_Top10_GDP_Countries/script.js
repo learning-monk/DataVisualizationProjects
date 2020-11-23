@@ -72,7 +72,6 @@ d3.csv("./population_total_long.csv").then((long_data, error) => {
 
   // Create Y-axis
   const yScale = d3.scaleLinear()
-    // .domain([0, d3.max(filtered_data, d => d.Count)])
     .rangeRound([innerHeight, 0]);
 
   const yAxis = d3.axisLeft().scale(yScale);
@@ -109,6 +108,7 @@ d3.csv("./population_total_long.csv").then((long_data, error) => {
   
   // console.log(stackedData);
 
+  // Set-up yScale domain after stacking data
   yScale.domain([-d3.max(stackedData[stackedData.length-1], d => d[1]), d3.max(stackedData[stackedData.length-1], d => d[1])]);
 
   // Create a tooltip
