@@ -38,3 +38,7 @@ https://www.kaggle.com/imdevskp/world-population-19602018
 - However, data is in the LONG format
 - Our first step in data transformation is to convert this LONG format data to WIDE format
 - Then, stack the data which suits the stream graph
+
+## Codepen:
+
+https://codepen.io/ksp585/full/jOrgbGx
