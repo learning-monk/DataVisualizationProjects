@@ -1,6 +1,6 @@
 # Stream Graph with D3.js
 
-- This chart analyses population changes of top 10 economies over the period 1960-2017.
+This chart analyses population changes of top 10 economies over the period 1960-2017.
 
 https://www.investopedia.com/insights/worlds-top-economies/
 
@@ -17,13 +17,14 @@ As per this article, here is the list of top 10 economies in the World by GDP:
 9. Brazil
 10. Canada
 
-- Why choose Stream Graph?
-  - Stream Graph is a variation of stacked area chart.
-  - Instead of plotting values against a fixed axis, values are displaced around a varying central baseline
-  - Stream Graphs are more aesthetically pleasing
-  - The size of each individual is proportional to the values in each category
-  - Stream Graphs are ideal for displaying high volume datasets
-  - The downside of Stream Graphs is, they are usually cluttered with large volumes of data.
+Why choose Stream Graph?
+
+- Stream Graph is a variation of stacked area chart.
+- Instead of plotting values against a fixed axis, values are displaced around a varying central baseline
+- Stream Graphs are more aesthetically pleasing
+- The size of each individual is proportional to the values in each category
+- Stream Graphs are ideal for displaying high volume datasets
+- The downside of Stream Graphs is, they are usually cluttered with large volumes of data.
 
 If you would like to learn more about Stream Graph, check this Wikipedia article:
 
