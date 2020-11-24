@@ -103,11 +103,21 @@ d3.csv(
       .attr("y", d => yScale(d.frequency))
       .attr("width", innerWidth/data.length-1.5)
       .attr("height", (d) => innerHeight - yScale(d.frequency))
-      .attr("fill", d => d.frequency == d3.max(data, d => d.frequency) ? "#f4c430" : "green")
+      .attr("fill", d => d.frequency == d3.max(data, d => d.frequency) ? "#f4c430" : "green");
+
+    // Add labels to bars
+    mainG.selectAll("text")
+      .data(data)
+      .enter()
       .append("text")
-        .attr("x", 5*3)
-        .attr("y", (d,i) => i*5)
-        .text(d => d.frequency);
+      .text(d => d.frequency.toFixed(3))
+      .attr("text-anchor", "middle")
+      .attr("x", (d,i) => xScale(d.letter) + innerWidth/data.length/2)
+      .attr("y", d => yScale(d.frequency)-5)
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "9px")
+      .attr("font-weight", "bold")
+      .attr("fill", "red");
 
     mainG
       .append("g")
