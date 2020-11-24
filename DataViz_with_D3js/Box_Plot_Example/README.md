@@ -2,7 +2,7 @@
 
 **This box plot analyzes distribution of Sepal length, Sepal width, Petal length, Petal width of species setosa, versicolor and virginica from Iris dataset.**
 
-I built this chart using the base code from this link. However, I have made several changes to this code to make it user friendly and improve aesthetics.
+I built this chart using the base code from the link below. However, I have made several changes to this code to make it user friendly and improve aesthetics.
 
 https://www.d3-graph-gallery.com/boxplot.html
 
