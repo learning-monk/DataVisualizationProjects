@@ -127,7 +127,4 @@ d3.csv(
 
   }
 
-
-  // console.log(data);
-
 });
