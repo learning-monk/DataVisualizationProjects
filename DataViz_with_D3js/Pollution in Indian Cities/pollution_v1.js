@@ -19,7 +19,7 @@ const formatDay = d3.timeFormat("%d");
 
 
 
-d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONMENT/Indian_cities_daily_pollution_2015-2020.csv").then((data, error) => {
+d3.csv("https://raw.githubusercontent.com/learning-monk/datasets/master/Indian_cities_daily_pollution_2015-2020.csv").then((data, error) => {
   if (error) throw error;
   
 
